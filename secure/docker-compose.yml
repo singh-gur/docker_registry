@@ -3,6 +3,7 @@ version: '3'
 services:
   registry:
     image: registry:2.7
+    restart: always
     volumes:
       - ./data:/var/lib/registry
       - ./config.yml:/etc/docker/registry/config.yml
@@ -12,6 +13,7 @@ services:
 
   ui:
     image: joxit/docker-registry-ui:latest
+    restart: always
     ports:
       - 8000:80
     environment:
